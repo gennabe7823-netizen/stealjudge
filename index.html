@@ -89,7 +89,7 @@ function setReadonly(){
   document.querySelectorAll("#players input,#players button").forEach(el=>el.disabled=!isAdmin);
 }
 function renderPlayers(){
-  $("players").innerHTML=state.players.map((pl,i)=>`<div class="pl"><input class="n" data-i="${i}" data-k="name" value="${esc(pl.name)}"><input class="t" type="number" step="0.01" inputmode="decimal" data-i="${i}" data-k="time" value="${esc(pl.time)}"><span class="sec">SEC</span><button class="x" data-del="${i}">×</button></div>`).join("");
+  $("players").innerHTML=state.players.map((pl,i)=>`<div class="pl"><input class="n" data-i="${i}" data-k="name" value="${esc(pl.name)}"><input class="t" type="text" inputmode="decimal" data-i="${i}" data-k="time" value="${esc(pl.time)}"><span class="sec">SEC</span><button class="x" data-del="${i}">×</button></div>`).join("");
   setReadonly();
 }
 function renderResult(){
@@ -107,7 +107,6 @@ function renderAll(){
   if(!composing){
     $("q").value=state.q; 
     $("p").value=state.p; 
-    renderPlayers(); 
   }
   renderResult(); 
 }
@@ -138,6 +137,7 @@ function startListening(){
       state=structuredClone(DEFAULT);
       await setDoc(ref,{...state, updatedAt:serverTimestamp(), updatedBy:auth.currentUser.email});
     }
+    renderPlayers();
     renderAll();
     applyingRemote=false;
     const email=auth.currentUser?.email||"未ログイン";
