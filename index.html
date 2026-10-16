@@ -36,6 +36,9 @@
 .note{color:#666;font-size:11px;text-align:center;margin-top:14px}
 .status{color:#A8A8A8;font-size:12px;text-align:center;margin:8px 0;min-height:1.2em}
 .auth{text-align:center;margin:10px 0}
+.pl input:disabled, .big input:disabled{opacity:1;color:#fff;background:#111;-webkit-text-fill-color:#fff}
+.big input:disabled{color:var(--g);-webkit-text-fill-color:var(--g)}
+.readonly .add,.readonly .x{opacity:0.4;pointer-events:none}
 .auth button{background:var(--grad);color:#000;border:none;border-radius:8px;padding:10px 18px;font-weight:900;font-size:14px}
 .hidden{display:none}
 </style></head><body>
@@ -76,11 +79,12 @@ const DEFAULT = { q:"1.25", p:"2.00", players:[
 
 const $ = id => document.getElementById(id);
 const esc = t => String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-let state = structuredClone(DEFAULT), isAdmin = false, applyingRemote = false, saveTimer = null, unsubscribe = null;
+let state = structuredClone(DEFAULT), isAdmin = false, applyingRemote = false, saveTimer = null, unsubscribe = null, composing = false;
 const status = msg => $("status").textContent = msg;
 
 function judge(m){if(m>=0.1)return["GO","成功濃厚",1];if(m>=0)return["CHANCE","ギリギリ有利",0];if(m>=-0.1)return["HARD","スタート次第",0];return["STAY","待て",0]}
 function setReadonly(){
+  document.body.classList.toggle("readonly",!isAdmin);
   ["q","p","add"].forEach(id=>$(id).disabled=!isAdmin);
   document.querySelectorAll("#players input,#players button").forEach(el=>el.disabled=!isAdmin);
 }
@@ -99,7 +103,14 @@ function renderResult(){
   <div class="card gold"><div class="lab">盗塁できそう</div><div class="v">${go}<span style="font-size:14px"> 人</span></div></div></div>`+
   rows.map((r,i)=>{const j=judge(r.m),ok=r.m>=0;return `<div class="r ${ok?"ok":""}"><div class="rk">${i+1}</div><div class="nm"><b>${esc(r.name)}</b><small>二塁到達 ${r.t.toFixed(2)} SEC</small></div><div class="m">${r.m>=0?"+":""}${r.m.toFixed(2)}</div><div class="bd ${j[2]?"solid":""}"><b>${j[0]}</b><small>${j[1]}</small></div></div>`}).join("");
 }
-function renderAll(){ $("q").value=state.q; $("p").value=state.p; renderPlayers(); renderResult(); }
+function renderAll(){ 
+  if(!composing){
+    $("q").value=state.q; 
+    $("p").value=state.p; 
+    renderPlayers(); 
+  }
+  renderResult(); 
+}
 function queueSave(){
   if(!isAdmin || applyingRemote) return;
   clearTimeout(saveTimer);
@@ -138,7 +149,24 @@ $("login").onclick=()=>signInWithPopup(auth,new GoogleAuthProvider()).catch(e=>s
 $("logout").onclick=()=>signOut(auth);
 $("q").oninput=e=>{state.q=e.target.value;renderResult();queueSave()};
 $("p").oninput=e=>{state.p=e.target.value;renderResult();queueSave()};
-$("players").addEventListener("input",e=>{if(!isAdmin)return;const i=e.target.dataset.i;if(i===undefined)return;state.players[+i][e.target.dataset.k]=e.target.value;renderResult();queueSave()});
+$("players").addEventListener("compositionstart",()=>{composing=true});
+$("players").addEventListener("compositionend",e=>{
+  composing=false;
+  if(!isAdmin)return;
+  const i=e.target.dataset.i;
+  if(i===undefined)return;
+  state.players[+i][e.target.dataset.k]=e.target.value;
+  renderResult();
+  queueSave();
+});
+$("players").addEventListener("input",e=>{
+  if(!isAdmin||composing)return;
+  const i=e.target.dataset.i;
+  if(i===undefined)return;
+  state.players[+i][e.target.dataset.k]=e.target.value;
+  renderResult();
+  queueSave();
+});
 $("players").addEventListener("click",e=>{if(!isAdmin)return;const i=e.target.dataset.del;if(i===undefined)return;state.players.splice(+i,1);renderPlayers();renderResult();queueSave()});
 $("add").onclick=()=>{if(!isAdmin)return;state.players.push({name:"選手"+(state.players.length+1),time:"3.30"});renderPlayers();renderResult();queueSave()};
 
