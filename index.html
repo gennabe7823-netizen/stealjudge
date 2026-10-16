@@ -104,10 +104,9 @@ function renderResult(){
   rows.map((r,i)=>{const j=judge(r.m),ok=r.m>=0;return `<div class="r ${ok?"ok":""}"><div class="rk">${i+1}</div><div class="nm"><b>${esc(r.name)}</b><small>二塁到達 ${r.t.toFixed(2)} SEC</small></div><div class="m">${r.m>=0?"+":""}${r.m.toFixed(2)}</div><div class="bd ${j[2]?"solid":""}"><b>${j[0]}</b><small>${j[1]}</small></div></div>`}).join("");
 }
 function renderAll(){ 
-  if(!composing){
-    $("q").value=state.q; 
-    $("p").value=state.p; 
-  }
+  const active = document.activeElement;
+  if(!composing && active !== $("q")) $("q").value=state.q; 
+  if(!composing && active !== $("p")) $("p").value=state.p; 
   renderResult(); 
 }
 function queueSave(){
@@ -137,7 +136,9 @@ function startListening(){
       state=structuredClone(DEFAULT);
       await setDoc(ref,{...state, updatedAt:serverTimestamp(), updatedBy:auth.currentUser.email});
     }
-    renderPlayers();
+    const active = document.activeElement;
+    const isEditing = active && (active.tagName === "INPUT") && active.closest("#players");
+    if(!isEditing) renderPlayers();
     renderAll();
     applyingRemote=false;
     const email=auth.currentUser?.email||"未ログイン";
