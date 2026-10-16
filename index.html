@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
+<html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#000000">
@@ -12,72 +10,82 @@
 .wrap{max-width:720px;margin:0 auto;border:2px solid var(--g);border-radius:20px;overflow:hidden}
 .top{background:var(--grad);padding:18px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;color:#000}
 .top b{font-size:28px;font-weight:900;letter-spacing:2px;font-style:italic}.top span{font-size:13px;font-weight:900;letter-spacing:3px}
-.body{padding:22px}.h{display:flex;align-items:center;gap:12px;margin:0 0 14px}.h i{background:var(--grad);color:#000;font-weight:900;font-size:12px;padding:3px 8px;border-radius:4px;font-style:normal}.h span{color:var(--g);font-weight:900;letter-spacing:3px;font-size:13px}.h em{flex:1;height:1px;background:linear-gradient(90deg,var(--gd),transparent)}
-.row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}.big{flex:1 1 200px;background:var(--p);border:1px solid var(--l);border-top:3px solid var(--g);border-radius:12px;padding:14px 18px}
-.lab{color:#A8A8A8;font-size:12px;letter-spacing:2px;font-weight:700}.big div{display:flex;align-items:baseline;gap:6px}.big input{background:transparent;border:none;outline:none;color:var(--g);font-size:46px;font-weight:900;width:100%;font-family:inherit}
-.sec{color:#A8A8A8;font-weight:800;font-size:12px}.pl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}.pl input{background:#000;border:1px solid var(--l);border-radius:8px;color:#fff;padding:10px 12px;font-size:16px;font-weight:800;font-family:inherit;outline:none;min-width:0}.pl .n{flex:2 1 120px}.pl .t{flex:1 1 80px;color:var(--g)}
-button{cursor:pointer}.x{background:transparent;border:1px solid var(--l);color:#777;border-radius:8px;padding:10px 14px;font-weight:900;font-size:15px}.add{background:transparent;border:1px dashed var(--g);color:var(--g);border-radius:8px;padding:10px 16px;font-weight:900;margin:4px 0 28px;font-size:14px}
-.card{flex:1 1 180px;background:var(--p);border:1px solid var(--l);border-radius:12px;padding:14px 18px}.card.gold{background:var(--grad);color:#000;border:none}.card .v{font-size:34px;font-weight:900}.card.gold .lab{color:#000;font-weight:900}
-.r{display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:var(--p);border:1px solid var(--l);border-radius:12px;padding:14px 18px;margin-bottom:8px}.r.ok{background:#1A1405;border-color:var(--gd)}.rk{font-size:22px;font-weight:900;color:#555;width:30px;font-style:italic}.ok .rk{color:var(--g)}
-.nm{flex:1 1 120px;min-width:0}.nm b{display:block;font-size:20px;color:#8A8A8A}.ok .nm b{color:#fff}.nm small{color:#777;font-size:12px;font-weight:700}.m{font-size:26px;font-weight:900;color:#666;min-width:84px;text-align:right}.ok .m{color:var(--g)}
-.bd{min-width:110px;text-align:center;border:2px solid #444;color:#777;border-radius:8px;padding:6px 10px}.ok .bd{border-color:var(--g);color:var(--g)}.bd.solid{background:var(--grad);color:#000!important}.bd b{display:block;font-size:18px;letter-spacing:2px;font-style:italic}.bd small{font-size:11px;font-weight:800}
-.note{color:#777;font-size:11px;text-align:center;margin:14px 0}.auth{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 18px;padding:12px;background:#111;border:1px solid #333;border-radius:10px}.auth button{background:var(--grad);border:0;border-radius:8px;padding:10px 14px;font-weight:900}.auth .secondary{background:#222;color:#fff;border:1px solid #444}.status{font-size:12px;color:#bbb;flex:1;min-width:160px}.readonly input,.readonly button.add,.readonly .x{pointer-events:none;opacity:.6}.hidden{display:none!important}
-</style>
-</head>
-<body>
+.body{padding:22px}
+.h{display:flex;align-items:center;gap:12px;margin:0 0 14px}.h i{background:var(--grad);color:#000;font-weight:900;font-size:12px;padding:3px 8px;border-radius:4px;font-style:normal}
+.h span{color:var(--g);font-weight:900;letter-spacing:3px;font-size:13px}.h em{flex:1;height:1px;background:linear-gradient(90deg,var(--gd),transparent)}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.big{flex:1 1 200px;background:var(--p);border:1px solid var(--l);border-top:3px solid var(--g);border-radius:12px;padding:14px 18px}
+.lab{color:#A8A8A8;font-size:12px;letter-spacing:2px;font-weight:700}
+.big div{display:flex;align-items:baseline;gap:6px}
+.big input{background:transparent;border:none;outline:none;color:var(--g);font-size:46px;font-weight:900;width:100%;font-family:inherit}
+.sec{color:#A8A8A8;font-weight:800;font-size:12px}
+.pl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.pl input{background:#000;border:1px solid var(--l);border-radius:8px;color:#fff;padding:10px 12px;font-size:16px;font-weight:800;font-family:inherit;outline:none;min-width:0}
+.pl .n{flex:2 1 120px}.pl .t{flex:1 1 80px;color:var(--g)}
+.x{background:transparent;border:1px solid var(--l);color:#777;border-radius:8px;padding:10px 14px;font-weight:900;font-size:15px}
+.add{background:transparent;border:1px dashed var(--g);color:var(--g);border-radius:8px;padding:10px 16px;font-weight:900;margin:4px 0 28px;font-size:14px}
+.card{flex:1 1 180px;background:var(--p);border:1px solid var(--l);border-radius:12px;padding:14px 18px}.card.gold{background:var(--grad);color:#000;border:none}
+.card .v{font-size:34px;font-weight:900}.card.gold .lab{color:#000;font-weight:900}
+.r{display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:var(--p);border:1px solid var(--l);border-radius:12px;padding:14px 18px;margin-bottom:8px}
+.r.ok{background:#1A1405;border-color:var(--gd)}
+.rk{font-size:22px;font-weight:900;color:#555;width:30px;font-style:italic}.ok .rk{color:var(--g)}
+.nm{flex:1 1 120px;min-width:0}.nm b{display:block;font-size:20px;color:#8A8A8A}.ok .nm b{color:#fff}.nm small{color:#777;font-size:12px;font-weight:700}
+.m{font-size:26px;font-weight:900;color:#666;min-width:84px;text-align:right}.ok .m{color:var(--g)}
+.bd{min-width:110px;text-align:center;border:2px solid #444;color:#777;border-radius:8px;padding:6px 10px}.ok .bd{border-color:var(--g);color:var(--g)}
+.bd.solid{background:var(--grad);color:#000!important}.bd b{display:block;font-size:18px;letter-spacing:2px;font-style:italic}.bd small{font-size:11px;font-weight:800}
+.note{color:#666;font-size:11px;text-align:center;margin-top:14px}
+.status{color:#A8A8A8;font-size:12px;text-align:center;margin:8px 0;min-height:1.2em}
+.auth{text-align:center;margin:10px 0}
+.auth button{background:var(--grad);color:#000;border:none;border-radius:8px;padding:10px 18px;font-weight:900;font-size:14px}
+.hidden{display:none}
+</style></head><body>
 <div class="wrap">
-  <div class="top"><b>STEAL JUDGE</b><span>TEAM / 盗塁判定</span></div>
-  <div class="body">
-    <div class="auth">
-      <div id="status" class="status">Firebase設定を確認しています…</div>
-      <button id="login" class="hidden">Googleでログイン</button>
-      <button id="logout" class="secondary hidden">ログアウト</button>
-    </div>
-    <div id="app" class="hidden">
-      <div class="h"><i>01</i><span>BATTERY</span><em></em></div>
-      <div class="row">
-        <label class="big"><span class="lab">投手クイック</span><div><input id="q" type="number" step="0.01" inputmode="decimal"><span class="sec">SEC</span></div></label>
-        <label class="big"><span class="lab">捕手 二塁送球</span><div><input id="p" type="number" step="0.01" inputmode="decimal"><span class="sec">SEC</span></div></label>
-      </div>
-      <div class="h"><i>02</i><span>RUNNERS</span><em></em></div>
-      <div id="players"></div>
-      <button class="add" id="add">＋ 選手を追加</button>
-      <div id="result"></div>
-    </div>
-  </div>
+<div class="top"><b>STEAL JUDGE</b><span>TEAM / 盗塁判定</span></div>
+<div class="body">
+<div class="auth"><button id="login">Googleでログイン（編集）</button><button id="logout" class="hidden">ログアウト</button></div>
+<div class="status" id="status"></div>
+<div class="h"><i>01</i><span>BATTERY</span><em></em></div>
+<div class="row">
+<label class="big"><span class="lab">投手クイック</span><div><input id="q" type="number" step="0.01" inputmode="decimal"><span class="sec">SEC</span></div></label>
+<label class="big"><span class="lab">捕手 二塁送球</span><div><input id="p" type="number" step="0.01" inputmode="decimal"><span class="sec">SEC</span></div></label>
 </div>
-<div class="note">チーム共通データはFirestoreに保存され、ログイン中の端末へ同期されます。管理者のみ編集できます。</div>
+<div class="h"><i>02</i><span>RUNNERS</span><em></em></div>
+<div id="players"></div>
+<button class="add" id="add">＋ 選手を追加</button>
+<div id="result"></div>
+</div></div>
+<div class="note">データはリアルタイムで同期されます。リンクを知っている人は閲覧可能です。</div>
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
-// 1) Firebase Console > Project settings > Your apps から値を入れてください。
-// 2) TEAM_IDはチーム内で共通の任意の文字列にしてください。
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBupOwqFoRwgPQEIaUMtPa1RF0u6YMDAfw",
+  authDomain: "stealjudge.firebaseapp.com",
+  projectId: "stealjudge",
+  storageBucket: "stealjudge.firebasestorage.app",
+  messagingSenderId: "750016789917",
+  appId: "1:750016789917:web:d0210852e650905a948374"
 };
 const TEAM_ID = "team-main";
-const DEFAULT_STATE = { q:"1.25", p:"2.00", players:[
+const DEFAULT = { q:"1.25", p:"2.00", players:[
   {name:"選手A",time:"3.22"},{name:"選手B",time:"3.05"},
   {name:"選手C",time:"3.11"},{name:"選手D",time:"3.45"}
 ]};
+
 const $ = id => document.getElementById(id);
 const esc = t => String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-let state = structuredClone(DEFAULT_STATE), db, auth, unsubscribe = null, isAdmin = false, applyingRemote = false, saveTimer = null;
-const status = (msg) => $("status").textContent = msg;
+let state = structuredClone(DEFAULT), isAdmin = false, applyingRemote = false, saveTimer = null, unsubscribe = null;
+const status = msg => $("status").textContent = msg;
+
 function judge(m){if(m>=0.1)return["GO","成功濃厚",1];if(m>=0)return["CHANCE","ギリギリ有利",0];if(m>=-0.1)return["HARD","スタート次第",0];return["STAY","待て",0]}
 function setReadonly(){
-  $("app").classList.toggle("readonly",!isAdmin);
-  ["q","p"].forEach(id=>$(id).disabled=!isAdmin);
-  $("add").disabled=!isAdmin;
+  ["q","p","add"].forEach(id=>$(id).disabled=!isAdmin);
   document.querySelectorAll("#players input,#players button").forEach(el=>el.disabled=!isAdmin);
 }
 function renderPlayers(){
-  $("players").innerHTML=state.players.map((pl,i)=>`<div class="pl"><input class="n" data-i="${i}" data-k="name" value="${esc(pl.name)}" aria-label="選手名"><input class="t" type="number" step="0.01" inputmode="decimal" data-i="${i}" data-k="time" value="${esc(pl.time)}" aria-label="二塁到達タイム"><span class="sec">SEC</span><button class="x" data-del="${i}" aria-label="選手を削除">×</button></div>`).join("");
+  $("players").innerHTML=state.players.map((pl,i)=>`<div class="pl"><input class="n" data-i="${i}" data-k="name" value="${esc(pl.name)}"><input class="t" type="number" step="0.01" inputmode="decimal" data-i="${i}" data-k="time" value="${esc(pl.time)}"><span class="sec">SEC</span><button class="x" data-del="${i}">×</button></div>`).join("");
   setReadonly();
 }
 function renderResult(){
@@ -93,51 +101,52 @@ function renderResult(){
 }
 function renderAll(){ $("q").value=state.q; $("p").value=state.p; renderPlayers(); renderResult(); }
 function queueSave(){
-  if(!isAdmin || applyingRemote || !db) return;
+  if(!isAdmin || applyingRemote) return;
   clearTimeout(saveTimer);
   saveTimer=setTimeout(async()=>{
-    try {
-      await setDoc(doc(db,"teams",TEAM_ID,"shared","state"), {...state, updatedAt:serverTimestamp(), updatedBy:auth.currentUser.email});
-      status(`ログイン中: ${auth.currentUser.email} ／ 同期済み`);
-    } catch(e) { console.error(e); status("保存できません。Firestoreのルールと設定を確認してください。"); }
-  },250);
+    try{
+      await setDoc(doc(db,"teams",TEAM_ID,"shared","state"), {...state, updatedAt:serverTimestamp(), updatedBy:auth.currentUser?.email||""});
+      status("同期済み");
+    }catch(e){console.error(e);status("保存できません");}
+  },300);
 }
-function bindInputs(){
-  $("q").addEventListener("input",e=>{state.q=e.target.value;renderResult();queueSave()});
-  $("p").addEventListener("input",e=>{state.p=e.target.value;renderResult();queueSave()});
-  $("players").addEventListener("input",e=>{if(!isAdmin)return;const i=e.target.dataset.i;if(i===undefined)return;state.players[+i][e.target.dataset.k]=e.target.value;renderResult();queueSave()});
-  $("players").addEventListener("click",e=>{if(!isAdmin)return;const i=e.target.dataset.del;if(i===undefined)return;state.players.splice(+i,1);renderPlayers();renderResult();queueSave()});
-  $("add").onclick=()=>{if(!isAdmin)return;state.players.push({name:"選手"+(state.players.length+1),time:"3.30"});renderPlayers();renderResult();queueSave()};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const ref = doc(db,"teams",TEAM_ID,"shared","state");
+
+function startListening(){
+  if(unsubscribe) unsubscribe();
+  unsubscribe = onSnapshot(ref, async snap=>{
+    applyingRemote=true;
+    if(snap.exists()){
+      const d=snap.data();
+      state={q:String(d.q??DEFAULT.q), p:String(d.p??DEFAULT.p), players:Array.isArray(d.players)?d.players:DEFAULT.players};
+    } else if(isAdmin && auth.currentUser){
+      state=structuredClone(DEFAULT);
+      await setDoc(ref,{...state, updatedAt:serverTimestamp(), updatedBy:auth.currentUser.email});
+    }
+    renderAll();
+    applyingRemote=false;
+    const email=auth.currentUser?.email||"未ログイン";
+    status(`${email} ／ ${isAdmin?"編集可能":"閲覧のみ"}`);
+  }, err=>{console.error(err);status("データを読み込めません");});
 }
-bindInputs();
-const configReady = !Object.values(firebaseConfig).some(v=>String(v).includes("YOUR_"));
-if(!configReady){
-  status("初期設定が必要です。READMEのFirebase設定手順を実施してください。");
-} else {
-  try {
-    const app=initializeApp(firebaseConfig); auth=getAuth(app); db=getFirestore(app);
-    $("login").classList.remove("hidden");
-    $("login").onclick=async()=>{try{await signInWithPopup(auth,new GoogleAuthProvider())}catch(e){status("ログイン失敗: "+e.message)}};
-    $("logout").onclick=()=>signOut(auth);
-    onAuthStateChanged(auth,user=>{
-      if(unsubscribe){unsubscribe();unsubscribe=null}
-      if(!user){$("app").classList.add("hidden");$("login").classList.remove("hidden");$("logout").classList.add("hidden");status("Googleログインしてください。");return}
-      $("login").classList.add("hidden");$("logout").classList.remove("hidden");$("app").classList.remove("hidden");
-      status(`ログイン中: ${user.email} ／ データを読み込み中…`);
-      // 管理者権限はFirestore Security Rulesで制御。下記メールは画面表示用であり、
-      // 必ず firestore.rules の ADMIN_EMAIL_HERE を管理者メールに置き換えること。
-      isAdmin = user.email === "ADMIN_EMAIL_HERE";
-      const ref=doc(db,"teams",TEAM_ID,"shared","state");
-      unsubscribe=onSnapshot(ref,async snap=>{
-        applyingRemote=true;
-        if(snap.exists()){const d=snap.data();state={q:String(d.q??DEFAULT_STATE.q),p:String(d.p??DEFAULT_STATE.p),players:Array.isArray(d.players)?d.players:DEFAULT_STATE.players};}
-        else if(isAdmin){state=structuredClone(DEFAULT_STATE);await setDoc(ref,{...state,updatedAt:serverTimestamp(),updatedBy:user.email});}
-        renderAll();applyingRemote=false;
-        status(`${user.email} ／ ${isAdmin?"管理者・編集可能":"閲覧専用"} ／ リアルタイム同期中`);
-      },err=>{console.error(err);status("データを読み込めません。Firestoreルールを確認してください。");});
-    });
-  } catch(e){console.error(e);status("Firebase初期化エラー。設定を確認してください。")}
-}
-</script>
-</body>
-</html>
+
+$("login").onclick=()=>signInWithPopup(auth,new GoogleAuthProvider()).catch(e=>status("ログイン失敗: "+e.message));
+$("logout").onclick=()=>signOut(auth);
+$("q").oninput=e=>{state.q=e.target.value;renderResult();queueSave()};
+$("p").oninput=e=>{state.p=e.target.value;renderResult();queueSave()};
+$("players").addEventListener("input",e=>{if(!isAdmin)return;const i=e.target.dataset.i;if(i===undefined)return;state.players[+i][e.target.dataset.k]=e.target.value;renderResult();queueSave()});
+$("players").addEventListener("click",e=>{if(!isAdmin)return;const i=e.target.dataset.del;if(i===undefined)return;state.players.splice(+i,1);renderPlayers();renderResult();queueSave()});
+$("add").onclick=()=>{if(!isAdmin)return;state.players.push({name:"選手"+(state.players.length+1),time:"3.30"});renderPlayers();renderResult();queueSave()};
+
+onAuthStateChanged(auth,user=>{
+  isAdmin = user && user.email === "gen.nabe.7823@gmail.com";
+  $("login").classList.toggle("hidden", !!user);
+  $("logout").classList.toggle("hidden", !user);
+  startListening();
+});
+startListening();
+</script></body></html>
