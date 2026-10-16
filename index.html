@@ -47,7 +47,7 @@
 .hidden{display:none}
 </style></head><body>
 <div class="wrap">
-<div class="top"><b>STEAL JUDGE</b><span>TEAM / 盗塁判定</span></div>
+<div class="top"><b>STEAL JUDGE</b><span>川口ゴールデンドリームス</span></div>
 <div class="body">
 <div class="auth"><button id="login">Googleでログイン（編集）</button><button id="logout" class="hidden">ログアウト</button></div>
 <div class="status" id="status"></div>
@@ -56,7 +56,7 @@
   <button data-tab="runners">Runner's time</button>
 </div>
 <div id="tab-main" class="tab show">
-<div class="h"><i>01</i><span>BATTERY</span><em></em></div>
+<div class="h"><i>01</i><span>Battery time</span><em></em></div>
 <div class="row">
 <label class="big"><span class="lab">投手クイック</span><div><input id="q" type="number" step="0.01" inputmode="decimal"><span class="sec">SEC</span></div></label>
 <label class="big"><span class="lab">捕手 二塁送球</span><div><input id="p" type="number" step="0.01" inputmode="decimal"><span class="sec">SEC</span></div></label>
@@ -64,7 +64,7 @@
 <div id="result"></div>
 </div>
 <div id="tab-runners" class="tab">
-<div class="h"><i>02</i><span>RUNNERS</span><em></em></div>
+<div class="h"><i>02</i><span>Runner's time</span><em></em></div>
 <div id="players"></div>
 <button class="add" id="add">＋ 選手を追加</button>
 </div>
@@ -94,7 +94,12 @@ const esc = t => String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&g
 let state = structuredClone(DEFAULT), isAdmin = false, applyingRemote = false, saveTimer = null, unsubscribe = null, composing = false;
 const status = msg => $("status").textContent = msg;
 
-function judge(m){if(m>=0.1)return["GO","成功濃厚",1];if(m>=0)return["CHANCE","ギリギリ有利",0];if(m>=-0.1)return["HARD","スタート次第",0];return["STAY","待て",0]}
+function judge(m){
+  if(m>=0.1) return ["GO","成功濃厚",1];
+  if(m>=0) return ["CHANCE","スタート次第",0];
+  if(m>=-0.09) return ["CHALLENGE","ギャンブル気味",0];
+  return ["STAY","失敗濃厚",0];
+}
 function setReadonly(){
   document.body.classList.toggle("readonly",!isAdmin);
   ["q","p","add"].forEach(id=>$(id).disabled=!isAdmin);
@@ -110,8 +115,8 @@ function renderResult(){
   const d=q+p;
   const rows=state.players.map(pl=>({name:pl.name,t:parseFloat(pl.time)})).filter(r=>!Number.isNaN(r.t)).map(r=>({...r,m:d-r.t})).sort((a,b)=>b.m-a.m);
   const go=rows.filter(r=>r.m>=0).length;
-  $("result").innerHTML=`<div class="h"><i>03</i><span>RESULT</span><em></em></div>
-  <div class="row" style="margin-bottom:14px"><div class="card"><div class="lab">守備側合計</div><div class="v">${d.toFixed(2)}<span class="sec"> SEC</span></div></div>
+  $("result").innerHTML=`<div class="h"><i>03</i><span>Judge</span><em></em></div>
+  <div class="row" style="margin-bottom:14px"><div class="card"><div class="lab">バッテリー</div><div class="v">${d.toFixed(2)}<span class="sec"> SEC</span></div></div>
   <div class="card gold"><div class="lab">盗塁できそう</div><div class="v">${go}<span style="font-size:14px"> 人</span></div></div></div>`+
   rows.map((r,i)=>{const j=judge(r.m),ok=r.m>=0;return `<div class="r ${ok?"ok":""}"><div class="rk">${i+1}</div><div class="nm"><b>${esc(r.name)}</b><small>二塁到達 ${r.t.toFixed(2)} SEC</small></div><div class="m">${r.m>=0?"+":""}${r.m.toFixed(2)}</div><div class="bd ${j[2]?"solid":""}"><b>${j[0]}</b><small>${j[1]}</small></div></div>`}).join("");
 }
